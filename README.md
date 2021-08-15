@@ -1,5 +1,5 @@
 # pong_py
-To download the game just click on code then download link.
+To download the game just click on code then download ZIP.
 
 Pong game made in pygame with 3 Game modes:
 Human vs Human
