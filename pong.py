@@ -174,7 +174,7 @@ def end_loop(MOD):
                 quit()
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[K_SPACE]:
-            main_game()
+            menu_loop()
         
         screen.fill((0, 0, 0))
         
@@ -189,7 +189,7 @@ def end_loop(MOD):
         if MOD == 5:
             GAME_FONT.render_to(screen, (200, 30), "IA RED YOU WON", (255, 255, 255))
         
-        GAME_FONT.render_to(screen, (120, 530), "PRESS SPACE TO RESTART", (255, 255, 255))
+        GAME_FONT.render_to(screen, (120, 530), "PRESS SPACE TO GO TO THE MENU", (255, 255, 255))
         #GAME_FONT.render_to(screen, (0, 20), "HIGHSCORE: " + str(high), (255, 255, 255))
 
         pygame.display.flip()
@@ -353,6 +353,7 @@ def main_game_ia():
     player2 = Player2()
     ball = Ball()
     line = Line()
+    rdm_level = randint(0,200)
     running = True
     SPEED = 0
     # Main loop
@@ -382,7 +383,7 @@ def main_game_ia():
         #    P2Y = BALLY - 20
         #elif X == 2 and P2Y > 10 and P2Y < 490:
         #    P2Y = BALLY + 20
-        P2Y = BALLY - 20
+        P2Y = BALLY - rdm_level
         if P2Y >= 495:
             P2Y = 490
         if P2Y <= 5:
@@ -445,6 +446,7 @@ def main_game_ia():
             SPEED = 0
             X = randint(1,2)
             pygame.mixer.Channel(0).play(pygame.mixer.Sound('score.ogg'))
+            rdm_level = randint(0,200)
         if BALLX > 766:
             BALLX = 385
             BALLY = 300
@@ -453,6 +455,7 @@ def main_game_ia():
             SPEED = 0
             X = randint(1,2)
             pygame.mixer.Channel(0).play(pygame.mixer.Sound('score.ogg'))
+            rdm_level = randint(0,200)
         if POINT1 == 10:
             end_loop(1)
         if POINT2 == 10:
@@ -502,6 +505,8 @@ def main_game_ia_vs_ia():
     line = Line()
     running = True
     SPEED = 0
+    rdm_level = randint(0,200)
+    rdm_level2 = randint(0,200)
     # Main loop
     while running:
         SPEED = SPEED + 0.02
@@ -525,8 +530,8 @@ def main_game_ia_vs_ia():
         #    P2Y = BALLY - 20
         #elif X == 2 and P2Y > 10 and P2Y < 490:
         #    P2Y = BALLY + 20
-        P2Y = BALLY - 20
-        P1Y = BALLY - 20
+        P2Y = BALLY - rdm_level
+        P1Y = BALLY - rdm_level2
         if P2Y >= 495:
             P2Y = 490
         if P2Y <= 5:
@@ -595,6 +600,8 @@ def main_game_ia_vs_ia():
             SPEED = 0
             X = randint(1,2)
             pygame.mixer.Channel(0).play(pygame.mixer.Sound('score.ogg'))
+            rdm_level = randint(0,200)
+            rdm_level2 = randint(0,200)
         if BALLX > 766:
             BALLX = 385
             BALLY = 300
@@ -603,6 +610,8 @@ def main_game_ia_vs_ia():
             SPEED = 0
             X = randint(1,2)
             pygame.mixer.Channel(0).play(pygame.mixer.Sound('score.ogg'))
+            rdm_level = randint(0,200)
+            rdm_level2 = randint(0,200)
         if POINT1 == 10:
             end_loop(4)
         if POINT2 == 10:
