@@ -5,3 +5,4 @@ IA vs Human
 IA vs IA
 
 To run the program make sure you have pygame install (pip install pygame)
+Then do python pong.py
